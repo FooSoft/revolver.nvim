@@ -46,7 +46,7 @@ local function hflip()
     end
 
     if flip_path then
-        vim.api.nvim_exec(string.format('e %s', flip_path), false)
+        vim.cmd(string.format('e %s', flip_path))
     end
 end
 
