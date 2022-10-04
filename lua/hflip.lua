@@ -36,17 +36,19 @@ local function hflip()
     local path = vim.api.nvim_buf_get_name(index)
     local name, ext = split_ext(path)
 
-    ext = ext:lower()
+    if ext ~= nil then
+        local ext_lower = ext:lower()
 
-    local flip_path
-    if header_exts[ext] then
-        flip_path = locate_flip_path(name, source_exts)
-    elseif source_exts[ext] then
-        flip_path = locate_flip_path(name, header_exts)
-    end
+        local flip_path
+        if header_exts[ext_lower] then
+            flip_path = locate_flip_path(name, source_exts)
+        elseif source_exts[ext_lower] then
+            flip_path = locate_flip_path(name, header_exts)
+        end
 
-    if flip_path then
-        vim.cmd(string.format('e %s', flip_path))
+        if flip_path then
+            vim.cmd(string.format('e %s', flip_path))
+        end
     end
 end
 
