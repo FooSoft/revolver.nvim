@@ -29,7 +29,7 @@ local function hflip()
         return
     end
 
-    for i = 1, #exts do
+    for i = 1, #exts - 1 do
         local j = (i + ext_index - 1) % #exts + 1
         local next_path = name .. exts[j]
         if file_exists(next_path) then
