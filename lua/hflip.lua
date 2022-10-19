@@ -32,7 +32,7 @@ local function hflip()
     for i = 1, #exts - 1 do
         local j = (i + ext_index - 1) % #exts + 1
         local next_path = name .. exts[j]
-        if file_exists(next_path) then
+        if path ~= next_path and file_exists(next_path) then
             vim.cmd(string.format('e %s', next_path))
             break
         end
