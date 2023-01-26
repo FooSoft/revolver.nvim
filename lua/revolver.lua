@@ -1,18 +1,14 @@
-Config = {
-    Suffixes = {
-        '.c',
-        '.cpp',
-        '.h',
-        '.hpp',
-        '.inl',
-    }
+local RevolverSuffixes = {
+    '.c',
+    '.cpp',
+    '.h',
+    '.hpp',
+    '.inl',
 }
 
 local function setup(config)
     if config then
-        for key, value in pairs(config) do
-            Config[key] = config[key] or value
-        end
+        RevolverSuffixes = config
     end
 end
 
@@ -32,7 +28,7 @@ local function revolve(back)
 
     local suffix_index = nil
     local prefix = nil
-    for i, s in ipairs(Config.Suffixes) do
+    for i, s in ipairs(RevolverSuffixes) do
         prefix = path_pivot(path, s)
         if prefix then
             suffix_index = i
@@ -42,7 +38,7 @@ local function revolve(back)
 
     if prefix then
         local start = 1
-        local stop = #Config.Suffixes - 1
+        local stop = #RevolverSuffixes - 1
         local step = 1
         if back then
             start, stop = stop, start
@@ -50,8 +46,8 @@ local function revolve(back)
         end
 
         for i = start, stop, step do
-            local j = (i + suffix_index - 1) % #Config.Suffixes + 1
-            local next_path = prefix .. Config.Suffixes[j]
+            local j = (i + suffix_index - 1) % #RevolverSuffixes + 1
+            local next_path = prefix .. RevolverSuffixes[j]
             if path ~= next_path and file_exists(next_path) then
                 vim.cmd(string.format('e %s', next_path))
                 break

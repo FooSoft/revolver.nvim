@@ -1,4 +1,6 @@
 if not vim.g.hflip then
+    local revolver = require('revolver')
+
     local function reload()
         package.loaded.revolver = nil
         revolver = require('revolver')
@@ -11,8 +13,6 @@ if not vim.g.hflip then
     local function revolve_back()
         revolver.revolve(true)
     end
-
-    reload()
 
     vim.api.nvim_create_user_command('Revolver', revolve, {})
     vim.api.nvim_create_user_command('RevolverBack', revolve_back, {})
