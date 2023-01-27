@@ -12,12 +12,16 @@ local function setup(config)
     end
 end
 
+local function escape(s)
+    return s:gsub('[%-%.%+%[%]%(%)%$%^%%%?%*]','%%%1')
+end
+
 local function file_exists(path)
     return vim.loop.fs_stat(path) ~= nil
 end
 
 local function path_pivot(path, suffix)
-    local start, stop = path:find(suffix)
+    local start, stop = path:find(escape(suffix) .. '$')
     if start and stop == #path then
         return path:sub(0, start - 1)
     end
