@@ -1,6 +1,6 @@
 # Revolver
 
-This Neovim plugin makes it easy to rotate between related files in a common directory. This enables "header flipping" in C/C++ and other languages where semantically related information is split between different files. Revolver alternates between files that share a common prefix after stripping away one of the predetermined suffixes. This suffix is typically the file extension, but can include a part of the filename as well. Classic Vim is not supported.
+This plugin makes it easy to rotate between related files in a common directory in Neovim. This enables "header flipping" in C/C++ and other languages where semantically related information is split between different files. Revolver alternates between files that share a common prefix after stripping away one of the predetermined suffixes. This suffix is typically the file extension, but can include a part of the filename as well. Classic Vim is not supported.
 
 ## Configuration
 
