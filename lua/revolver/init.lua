@@ -21,6 +21,7 @@ local function file_exists(path)
 end
 
 local function path_pivot(path, suffix)
+    print(path, suffix, escape(suffix))
     local start, stop = path:find(escape(suffix) .. '$')
     if start and stop == #path then
         return path:sub(0, start - 1)

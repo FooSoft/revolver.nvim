@@ -20,10 +20,10 @@ require('revolver').setup({
 
 For the following examples, imagine that you have the files `foo.cpp`, `foo.h`, and `foo.inl` in a directory and are currently editing `foo.cpp`.
 
-#### `Revolver`
+#### `Revolve`
 
-Invoking the `Revolver` command will open `foo.h`. Subsequent invocation will cause `foo.h` and `foo.inl` to open before wrapping back around to `foo.cpp`. The order that files are opened in corresponds to the ordering of suffixes provided to the `setup` function.
+Invoking the `Revolve` command will open `foo.h`. Subsequent invocation will cause `foo.h` and `foo.inl` to open before wrapping back around to `foo.cpp`. The order that files are opened in corresponds to the ordering of suffixes provided to the `setup` function.
 
-#### `RevolverBack`
+#### `RevolveBack`
 
-This command is similar to `Revolver` with the difference being that suffix rotation occurs backwards. The first file to be opened would be `foo.inl`, followed by `foo.h`, and finally `foo.cpp` again.
+This command is similar to `Revolve` with the difference being that suffix rotation occurs backwards. The first file to be opened would be `foo.inl`, followed by `foo.h`, and finally `foo.cpp` again.
