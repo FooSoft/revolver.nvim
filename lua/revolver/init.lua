@@ -13,7 +13,7 @@ local function setup(config)
 end
 
 local function escape(s)
-    return s:gsub('[%-%.%+%[%]%(%)%$%^%%%?%*]','%%%1')
+    return s:gsub('[%-%.%+%[%]%(%)%$%^%%%?%*]', '%%%1')
 end
 
 local function file_exists(path)
