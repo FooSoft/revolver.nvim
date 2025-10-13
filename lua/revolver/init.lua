@@ -6,12 +6,6 @@ local RevolverSuffixes = {
     '.inl',
 }
 
-local function setup(config)
-    if config then
-        RevolverSuffixes = config
-    end
-end
-
 local function escape(s)
     return s:gsub('[%-%.%+%[%]%(%)%$%^%%%?%*]', '%%%1')
 end
@@ -27,7 +21,15 @@ local function path_pivot(path, suffix)
     end
 end
 
-local function revolve(back)
+local M = {}
+
+function M.setup(config)
+    if config then
+        RevolverSuffixes = config
+    end
+end
+
+function M.revolve(back)
     local path = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
 
     local suffix_index = nil
@@ -60,7 +62,4 @@ local function revolve(back)
     end
 end
 
-return {
-    revolve = revolve,
-    setup = setup,
-}
+return M
